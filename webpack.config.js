@@ -3,7 +3,7 @@ const webpack = require('webpack'),
       StyleLintPlugin = require('stylelint-webpack-plugin'),
       BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
       ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-      
+//BrowserSync Settings      
 const settings = {
         // The BrowserSync hostname
           host: 'localhost',
@@ -14,11 +14,12 @@ const settings = {
           // A target to proxy all BrowserSync requests to.
           // This can be a local web server, Vagrant or a docker container.
           // This is your local/VM WordPress development site.
-          proxy: 'localhost:8888/sjc',
+          // This example uses MAMP to serve a wordpress site.
+          proxy: 'localhost:8888/project-folder',
         
           // If you have your Site URL for WordPress set to anything else other than the proxy address,
-          // we need to override all URL. In this example I am overriding my site at http://localhost:8888/sjc
-          urlOverride: /localhost\:8888\/sjc/
+          // we need to override all URL. In this example I am overriding my site at http://localhost:8888/project-folder
+          urlOverride: /localhost\:8888\/project\-folder/
 };
 
 module.exports = function(env) {
@@ -26,7 +27,7 @@ module.exports = function(env) {
         entry: './src/js/app.js',
         output: {
             path: path.resolve( __dirname, 'dist'),
-            filename: "bundle.js"
+            filename: "app.js"
         },
         module: {
           rules: [
