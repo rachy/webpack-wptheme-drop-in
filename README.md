@@ -4,7 +4,7 @@ This package was created as a drop in for most Wordpress starter themes to integ
 
 ## Perks
 
-1. Incorporates SCSS with scss mapping for easy development.
+1. Incorporates SCSS with source mapping for easy development.
 2. Incorporates Babel to transpile ES6 to ES5
 3. Incorporates SCSS and JS linting for cleaner development
 4. Keeps custom scss and js separate from starter theme unless you declare otherwise.
@@ -14,11 +14,13 @@ This package was created as a drop in for most Wordpress starter themes to integ
 
 Node.js
 
+To Access your dashboard, you will want to use your original local address. 
+
 ## Instalation
 
-1. Install your starter theme of choice (Do not activate till last step).
+1. Install your starter theme of choice and activate it.
 
-2. Drop package into your theme folder
+2. Drop package into your theme folder (Note: there are three invisible files that will not copy over unless you have your invisible files as viewable.)
 
 3. Navigate to your theme folder in terminal
 
@@ -30,11 +32,6 @@ npm install
 
 5. Update your browsersync settings located at the top of webpack.config.js
 
-6. Run NPM
-
-```
-npm run dev
-```
 
 6. Add your app.js and app.css to your functions.php file
 
@@ -47,7 +44,11 @@ add_action( 'wp_enqueue_scripts', 'mytheme_scripts' );
 
 ```
 
-7. Activate your theme
+7. Run NPM
+
+```
+npm run dev
+```
 
 ### Build Prod Version
 
