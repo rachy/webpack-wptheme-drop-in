@@ -2,7 +2,7 @@
 
 This package was created as a drop in for most Wordpress starter themes to integrate Webpack for and a few of the useful tools it has to offer. 
 
-##Perks
+## Perks
 
 1. Incorporates SCSS with scss mapping for easy development.
 2. Incorporates Babel to transpile ES6 to ES5
@@ -10,11 +10,11 @@ This package was created as a drop in for most Wordpress starter themes to integ
 4. Keeps custom scss and js separate from starter theme unless you declare otherwise.
 5. Uses browsersync to reload browser on save of php, scss, or js files within your theme. 
 
-##Requirements
+## Requirements
 
 Node.js
 
-##Instalation
+## Instalation
 
 1. Install your starter theme of choice (Do not activate till last step).
 
@@ -43,17 +43,17 @@ npm run dev
 6. Add your app.js and app.css to your functions.php file
 
 ```
-function sjc_scripts() {
-  wp_enqueue_style( 'my-theme-custom-styles', get_template_directory_uri() . '/dist/app.css' );
-  wp_enqueue_script( 'my-theme-custom-js', get_template_directory_uri() . '/dist/app.js', array(), '20180624', true );
+function mytheme_scripts() {
+  wp_enqueue_style( 'mytheme-custom-styles', get_template_directory_uri() . '/dist/app.css' );
+  wp_enqueue_script( 'mytheme-custom-js', get_template_directory_uri() . '/dist/app.js', array(), '20180624', true );
 }
-add_action( 'wp_enqueue_scripts', 'sjc_scripts' );
+add_action( 'wp_enqueue_scripts', 'mytheme_scripts' );
 
 ```
 
 7. Activate your theme. 
 
-##Breakdown
+## Breakdown
 The working files for css and js are kept in the src folder app.js is the primary js file and app.scss is the primary scss file. Once compiled, they will be placed into a dist folder. 
 
 Should you want your app.css to replace the current theme stylesheet rather than be added as a separate css file, simply create a new scss partial, copy the code from the old style.css file and import it first in your app.scss file. Change the name of app.scss to style.css. Open app.js and modify the import link to style.css. Finally, change the following: ExtractTextPlugin("app.css") to ExtractTextPlugin("../style.css") in your webpack.config.js 
