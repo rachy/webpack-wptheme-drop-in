@@ -1,6 +1,6 @@
-# webpack-wptheme-drop-in
+# Webpack 4 Wordpress Theme Drop-in
 
-This package was created as a drop in for most Wordpress starter themes to integrate Webpack for and a few of the useful tools it has to offer. 
+This package was created as a drop in for most Wordpress starter themes to integrate Webpack for and a few of the useful tools it has to offer. If you need a starter theme, try _s at underscores.me
 
 ## Perks
 
