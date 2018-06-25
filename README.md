@@ -30,10 +30,6 @@ npm install
 
 5. Update your browsersync settings located at the top of webpack.config.js
 
-```
-npm install
-```
-
 6. Run NPM
 
 ```
@@ -51,7 +47,15 @@ add_action( 'wp_enqueue_scripts', 'mytheme_scripts' );
 
 ```
 
-7. Activate your theme. 
+7. Activate your theme
+
+### Build Prod Version
+
+8. To build your production version run the following in terminal
+
+```
+npm run build
+```
 
 ## Breakdown
 The working files for css and js are kept in the src folder app.js is the primary js file and app.scss is the primary scss file. Once compiled, they will be placed into a dist folder. 
