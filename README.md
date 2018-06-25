@@ -62,3 +62,4 @@ The working files for css and js are kept in the src folder app.js is the primar
 
 Should you want your app.css to replace the current theme stylesheet rather than be added as a separate css file, simply create a new scss partial, copy the code from the old style.css file and import it first in your app.scss file. Change the name of app.scss to style.css. Open app.js and modify the import link to style.css. Finally, change the following: ExtractTextPlugin("app.css") to ExtractTextPlugin("../style.css") in your webpack.config.js 
 
+Update your package.json file to reflect your own project. 
