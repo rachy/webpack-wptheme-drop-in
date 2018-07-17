@@ -3,7 +3,8 @@ const webpack = require('webpack'),
       StyleLintPlugin = require('stylelint-webpack-plugin'),
       BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
       ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-//BrowserSync Settings      
+//BrowserSync Settings 
+const dir = '/project-folder';      
 const settings = {
         // The BrowserSync hostname
           host: 'localhost',
@@ -15,11 +16,11 @@ const settings = {
           // This can be a local web server, Vagrant or a docker container.
           // This is your local/VM WordPress development site.
           // This example uses MAMP to serve a wordpress site.
-          proxy: 'localhost:8888/project-folder',
+          proxy: 'localhost:8888' + dir,
         
           // If you have your Site URL for WordPress set to anything else other than the proxy address,
           // we need to override all URL. In this example I am overriding my site at http://localhost:8888/project-folder
-          urlOverride: /localhost\:8888\/project\-folder/
+          urlOverride: 'localhost:8888' + dir
 };
 
 module.exports = function(env) {
@@ -27,7 +28,8 @@ module.exports = function(env) {
         entry: './src/js/app.js',
         output: {
             path: path.resolve( __dirname, 'dist'),
-            filename: "app.js"
+            filename: "app.js",
+            publicPath: dir + '/wp-content/themes/samp/dist/'
         },
         module: {
           rules: [
@@ -54,10 +56,6 @@ module.exports = function(env) {
               loader: ExtractTextPlugin.extract( [
                   {
                       loader: 'css-loader',
-                      options: {
-                          minimize: true,
-                          sourceMap: true
-                      }
                   },
                   {
                       loader: 'sass-loader',
@@ -66,7 +64,19 @@ module.exports = function(env) {
                       }
                   }
               ] )            
-            }
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: ''
+                    }
+                  }
+                ]
+              }
 
           ]
         },
