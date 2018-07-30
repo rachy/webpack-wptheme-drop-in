@@ -4,7 +4,9 @@ const webpack = require('webpack'),
       BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
       ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 //BrowserSync Settings 
-const dir = '/project-folder';      
+//Adjust the dir to equal what ever you have named your theme. 
+//This example uses "theme-folder"
+const dir = 'theme-folder';      
 const settings = {
         // The BrowserSync hostname
           host: 'localhost',
@@ -16,11 +18,11 @@ const settings = {
           // This can be a local web server, Vagrant or a docker container.
           // This is your local/VM WordPress development site.
           // This example uses MAMP to serve a wordpress site.
-          proxy: 'localhost:8888' + dir,
+          proxy: 'localhost:8888/' + dir,
         
           // If you have your Site URL for WordPress set to anything else other than the proxy address,
           // we need to override all URL. In this example I am overriding my site at http://localhost:8888/project-folder
-          urlOverride: 'localhost:8888' + dir
+          urlOverride: 'localhost:8888/' + dir
 };
 
 module.exports = function(env) {
@@ -29,7 +31,7 @@ module.exports = function(env) {
         output: {
             path: path.resolve( __dirname, 'dist'),
             filename: "app.js",
-            publicPath: dir + '/wp-content/themes/samp/dist/'
+            publicPath: dir + '/wp-content/themes/' + dir + '/dist/'
         },
         module: {
           rules: [
