@@ -84,7 +84,10 @@ module.exports = function(env) {
         },
         plugins: [
           new ExtractTextPlugin("app.css"),
-          new StyleLintPlugin({ syntax: 'scss' }),
+          new StyleLintPlugin({ 
+            syntax: 'scss', 
+            fix: true 
+          }),
           new BrowserSyncPlugin({
               host: settings.host,
               port: settings.port,
